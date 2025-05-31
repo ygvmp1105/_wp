@@ -36,3 +36,7 @@ function deepMerge(obj1, obj2) {
 
     return result;
 }
+const obj1 = { a: 1, b: { x: 2, y: 3 } };
+const obj2 = { b: { y: 5, z: 6 }, c: 7 };
+
+console.log(deepMerge(obj1, obj2));
