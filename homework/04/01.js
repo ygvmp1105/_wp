@@ -18,4 +18,3 @@ function countLetters(str) {
 }
 
 console.log(countLetters("banana")); 
-// Map { 'b' => 1, 'a' => 3, 'n' => 2 }
