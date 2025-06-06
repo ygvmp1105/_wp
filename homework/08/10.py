@@ -11,4 +11,5 @@ students = [
     {'name': 'jack', 'scores': [60, 85, 95]},
     {'name': 'alan', 'scores': [160, 185, 195]},
 ]
+
 summary(students)
