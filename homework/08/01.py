@@ -7,6 +7,6 @@ def find_max(numbers):
             max_num = num
     return max_num
 
-print(find_max([3, 5, 1, 9, 2]))
-print(find_max([-10, -5, -3]))
-print(find_max([100]))
+print(find_max([10]))
+print(find_max([3, 55, 11, 91, -2]))
+print(find_max([-180, -5, -37]))
