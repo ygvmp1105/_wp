@@ -20,4 +20,26 @@
 - 程式碼是自己寫的
 ## 習題9
 - 參考[02-blogSignup](https://github.com/ccc113b/html2server/tree/master/02-%E5%BE%8C%E7%AB%AFserver/py/fastapi/04-session/02-blogSignup)進行修改
-- 只修改了homework/09/main.py與homework/09/templates/show_post.html<br>在查看貼文介面新增刪除功能
+- 只修改了homework/09/main.py與homework/09/templates/show_post.html<br>在查看貼文介面新增刪除功能<br>
+```python
+@app.post("/post/{post_id}/delete")
+async def delete_post(
+    request: Request,
+    post_id: int = Path(...),
+    db: Session = Depends(get_db)
+):
+    user = request.session.get("user")
+    if not user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+
+    post = db.query(Post).filter(Post.id == post_id).first()
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    
+    if post.username != user["username"]:
+        raise HTTPException(status_code=403, detail="You can only delete your own posts")
+
+    db.delete(post)
+    db.commit()
+    return RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
+```
