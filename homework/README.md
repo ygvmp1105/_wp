@@ -21,6 +21,7 @@
 ## 習題9
 - 參考[02-blogSignup](https://github.com/ccc113b/html2server/tree/master/02-%E5%BE%8C%E7%AB%AFserver/py/fastapi/04-session/02-blogSignup)進行修改
 - 只修改了homework/09/main.py與homework/09/templates/show_post.html<br>在查看貼文介面新增刪除功能<br>
+@app.post("/post/{post_id}/delete")由AI(ChatGPT)所寫
 ```python
 @app.post("/post/{post_id}/delete")
 async def delete_post(
